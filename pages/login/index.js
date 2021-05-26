@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const initialFormLoginState = {
-    email: '',
+    credencial: '',
     password: '',
 }
 
@@ -27,18 +27,18 @@ const Login = ({ history }) => {
 
     const submitLogin = () => {
         let userRecords = JSON.parse(localStorage.getItem('formData'));
-        localStorage.setItem('loggedInUser', formLogin.email)
+        localStorage.setItem('loggedInUser', formLogin.credencial)
 
-        if (!localStorage.getItem('formData') && formLogin.email && formLogin.password) {
+        if (!localStorage.getItem('formData') && formLogin.credencial && formLogin.password) {
             toast.error('Usuário não cadastrado.', {
                 position: "top-right",
                 autoClose: 3000,
             });
         }
 
-        else if (localStorage.getItem('formData') && formLogin.email && formLogin.password) {
+        else if (localStorage.getItem('formData') && formLogin.credencial && formLogin.password) {
             for (let i = 0; i < userRecords.length; i++) {
-                const checkLogin = userRecords.find(val => userRecords[i].email === formLogin.email);
+                const checkLogin = userRecords.find(val => userRecords[i].credencial === formLogin.credencial);
                 if (checkLogin) {
                     history.push('home');
                 } else {
@@ -65,7 +65,7 @@ const Login = ({ history }) => {
 
             <div className="login--content">
                 <Input type="text"
-                    placeholder="Email"
+                    placeholder="Credencial"
                     onChange={e => setInput({ email: e.target.value }) }
                 />
                 <Input type="password"
