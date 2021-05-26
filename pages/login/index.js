@@ -66,7 +66,7 @@ const Login = ({ history }) => {
             <div className="login--content">
                 <Input type="text"
                     placeholder="Credencial"
-                    onChange={e => setInput({ email: e.target.value }) }
+                    onChange={e => setInput({ credencial: e.target.value }) }
                 />
                 <Input type="password"
                     placeholder="Senha"
